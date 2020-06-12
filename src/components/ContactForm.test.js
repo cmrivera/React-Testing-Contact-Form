@@ -6,4 +6,21 @@ test("renders contact form without crashing", () => {
   render(<ContactForm />);
 });
 
-test("");
+test("contains First Name Label", () => {
+  const { getByTestId } = render(<ContactForm />);
+  const linkLabel = getByTestId(/first name/i);
+  expect(linkLabel).toBeInTheDocument();
+});
+
+it('renders " last name" text', () => {
+  // trying query by text
+  const { queryByText } = render(<ContactForm />);
+  const hasLastName = queryByText(/last name/i);
+  expect(hasLastName).toBeInTheDocument();
+});
+
+it('renders " message" text', () => {
+  const { getByText } = render(<ContactForm />);
+  const displayMessage = getByText(/message/i);
+  expect(displayMessage).toBeInTheDocument();
+});

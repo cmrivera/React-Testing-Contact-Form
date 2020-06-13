@@ -10,6 +10,11 @@ const ContactForm = () => {
   const onSubmit = (data) => {
     setData(data);
   };
+  /* const [color, setColor] = useState();*/
+
+  /*const buttonClick = (e) => {
+    setColor((color: "red"));
+  };*/
 
   useForm(() => {
     axios
@@ -22,7 +27,6 @@ const ContactForm = () => {
 
   return (
     <div className="App">
-      <button />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName" data-testid="first name">
@@ -63,11 +67,16 @@ const ContactForm = () => {
           <label htmlFor="message">Message</label>
           <textarea name="message" ref={register({ required: false })} />
         </div>
+        <div>
+          <label>CheckBox Practice</label>
+          <input type="checkbox" />
+        </div>
         {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
+        <button>Practice Testing Button</button>
         <input type="submit" />
       </form>
     </div>

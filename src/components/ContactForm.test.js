@@ -24,3 +24,8 @@ it('renders " message" text', () => {
   const displayMessage = getByText(/message/i);
   expect(displayMessage).toBeInTheDocument();
 });
+test("renders if checkbox works", () => {
+  const { getByText } = render(<ContactForm />);
+  const checkWorks = getByText(/checkbox practice/i);
+  expect(checkWorks).toBeInTheDocument();
+});
